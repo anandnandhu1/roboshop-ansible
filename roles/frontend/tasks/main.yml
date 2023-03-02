@@ -1,3 +1,36 @@
-- name: test
-  ansible.builtin.debug:
-    msg: hello from frontend
+- name: install nginx
+  ansible.builtin.yum:
+    name: httpd
+    state: installed
+
+- name: remove old http document
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: create a http document directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
+
+- name: download frontend content
+  ansible.builtin.unarchive:
+    src: curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
+- name: copy roboshop conf file to nginx
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: restart nginx file
+  ansible.builtin.systemd:
+    state: restarted
+    name: nginx
+    enabled: yes
+
+
+
+
+
