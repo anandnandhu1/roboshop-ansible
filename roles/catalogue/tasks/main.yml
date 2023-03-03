@@ -53,7 +53,7 @@
     name: mongodb-org-shell
     state: installed
 
-- name: load schema
+- name: Load Schema
   community.mongodb.mongodb_shell:
     login_host: mongodb-dev.anandnandhu.online
     file: "/app/schema/catalogue.js"
