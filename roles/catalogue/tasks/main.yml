@@ -53,7 +53,7 @@
     state: installed
 
 - name: load schema
-  community.mongodb.mongodb-shell:
+  community.mongodb.mongodb_shell:
     login_host: mongodb-dev.anandnandhu.online
     file: "/app/schema/catalogue.js"
     idempotent: yes
