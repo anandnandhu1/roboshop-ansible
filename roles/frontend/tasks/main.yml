@@ -1,14 +1,14 @@
-- name: install nginx
+- name: Install Nginx
   ansible.builtin.yum:
-    name: httpd
+    name: nginx
     state: installed
 
-- name: remove old http document
+- name: Remove old HTTP Documents
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
 
-- name: create a http document directory
+- name: Create HTTP Document Directory
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: directory
