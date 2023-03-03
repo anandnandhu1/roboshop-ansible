@@ -1,25 +1,10 @@
-print_head "configure node js repos"
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>${LOG}
-status_check
-
-print_head "install nodejs"
-yum install nodejs -y &>>${LOG}
-status_check
-
-APP_PREREQ
-
-print_head "install nodejs dependancies"
-cd /app &>>${LOG}
-npm install &>>${LOG}
-status_check
-
 - name: configure nodejs
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: install nodejs
-      ansible.builtin.yum:
-        name: nodejs
-        state: installed
+  ansible.builtin.yum:
+    name: nodejs
+    state: installed
 
 - name: add apllication user
   ansible.builtin.user:
