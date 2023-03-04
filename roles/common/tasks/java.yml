@@ -8,7 +8,7 @@
 
 - name: maven build
   ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
-  algs:
+  args:
     chdir: /app
 
 - name: systemd setup
