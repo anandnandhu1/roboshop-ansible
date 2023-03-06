@@ -1,0 +1,33 @@
+
+
+
+    print_head "update password in service file"
+    sed -i -e "s/roboshop_rabbitmq_password/${roboshop_rabbitmq_password}/" ${script_location}/files/${component}.service &>>${LOG}
+    status_check
+
+    SYSTEMD_SETUP
+
+- name: install python 3
+  ansible.builtin.yum:
+    name:
+      - python36
+      - gcc
+      - python3-devel
+
+- name: app pre-req
+  ansible.builtin.include_tasks: "app-prereq.yml"
+
+- name: dowmload python dependancies
+  ansible.builtin.pip:
+    requirements: /app/requirements.txt
+    executable: pip3.6
+
+- name: sysytemd setup
+  ansible.builtin.include_tasks: "systemd.yml"
+
+- name: load schema
+  ansible.builtin.include_tasks: "{{schema_type}}-schema.yml"
+  when: schema load
+
+
+
