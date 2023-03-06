@@ -22,7 +22,7 @@
     user: roboshop
     password: "{{roboshop_rabbitmq_password}}"
     vhost: /
-    configure_priy: .*
+    configure_priv: .*
     read_priv: .*
     write_priv: .*
     state: present
