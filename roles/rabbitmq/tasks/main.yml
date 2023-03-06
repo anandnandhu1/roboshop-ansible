@@ -19,6 +19,7 @@
 
 - name: add application user
   community.rabbitmq.rabbitmq_user:
+    user: roboshop
     password: "{{roboshop_rabbitmq_password}}"
     vhost: /
     configure_priy: .*
