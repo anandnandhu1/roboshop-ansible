@@ -23,7 +23,6 @@
       - {name: "dev.payment.USER_PORT", value: "8080" }
       - {name: "dev.payment.AMQP_HOST", value: "rabbitmq-dev.anandnandhu.online" }
       - {name: "dev.payment.AMQP_USER", value: "roboshop" }
-      - {name: "dev.payment.AMQP_PASS", value: "roboshop123" }
       - {name: "dev.shipping.CART_ENDPOINT", value: "cart-dev.anandnandhu.online:8080" }
       - {name: "dev.shipping.DB_HOST", value: "mysql-dev.anandnandhu.online" }
       - {name: "dev.user.MONGO", value: "true" }
