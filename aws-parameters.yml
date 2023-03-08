@@ -2,7 +2,7 @@
   hosts: localhost
   connection: local
   tasks:
-    - name: create or update key value in aws ssm parameter
+    - name: create  parameter
       community.aws.aws_ssm_parameter_store:
         name: "{{ item.name }}"
         value: "{{ item.value }}"
@@ -29,3 +29,12 @@
       - {name: "dev.user.MONGO", value: "true" }
       - {name: "dev.user.MONGO_URL", value: "mongodb://mongodb-dev.anandnandhu.online:27017/users" }
       - {name: "dev.user.REDIS_HOST", value: "redis-dev.anandnandhu.online" }
+
+      - name: create secrets
+        community.aws.aws_ssm_parameter_store:
+          name: "{{ item.value }}"
+          value: "{{ item.value }}"
+          region: us-east-1
+          string_type: "securestring"
+        loop:
+          - {name: "dev.payment.AMQP_PASS", value: "roboshop123" }
