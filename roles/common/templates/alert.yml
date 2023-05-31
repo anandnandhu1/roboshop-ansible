@@ -16,8 +16,8 @@ groups:
         for: 1m
         labels:
           severity: critical
-         annotations: { % raw % }
-           summary: "Service Down on {{ $labels.name }}"
-           description: "Service {{ $labels.exported_name }} is down"
+        annotations: { % raw % }
+          summary: "Service Down on {{ $labels.name }}"
+          description: "Service {{ $labels.exported_name }} is down"
 { % endraw % }
-{ % endif % }
+{% endif %}
