@@ -22,8 +22,6 @@
     name: prometheus
     state: restarted
 
-- name: Check Prometheus Server Started or not
-  ansible.builtin.shell: netstat -lntp | grep 9090
 
 ### Grafana
 #- name: Make Template
