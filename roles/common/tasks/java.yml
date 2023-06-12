@@ -1,15 +1,20 @@
-- name: installed maven
+#- name: installed maven
+#  ansible.builtin.yum:
+#    name: maven
+#    state: installed
+
+- name: Install Java
   ansible.builtin.yum:
-    name: maven
+    name: java-11-openjdk
     state: installed
 
 - name: app pre-req
   ansible.builtin.include_tasks: "app-prereq.yml"
 
-- name: maven build
-  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
-  args:
-    chdir: /app
+#- name: maven build
+#  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
+#  args:
+#    chdir: /app
 
 - name: systemd setup
   ansible.builtin.include_tasks: "systemd.yml"
