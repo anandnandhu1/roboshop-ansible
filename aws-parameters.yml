@@ -65,10 +65,10 @@
       - { name: "prod.frontend.CART_URL", value: "http://cart-prod.anandnandhu.online:80/" }
       - { name: "prod.frontend.SHIPPING_URL", value: "http://shipping-prod.anandnandhu.online:80/" }
       - { name: "prod.frontend.PAYMENT_URL", value: "http://payment-prod.anandnandhu.online:80/" }
-      - { name: "prod.payment.CART_HOST", value: "cart-prod.anandnandhu.online" }
-      - { name: "prod.payment.CART_PORT", value: "80" }
-      - { name: "prod.payment.USER_HOST", value: "user-prod.anandnandhu.online" }
-      - { name: "prod.payment.USER_PORT", value: "80" }
+      - { name: "prod.payment.CART_HOST", value: "cart-roboshop" }
+      - { name: "prod.payment.CART_PORT", value: "8080" }
+      - { name: "prod.payment.USER_HOST", value: "user-roboshop" }
+      - { name: "prod.payment.USER_PORT", value: "8080" }
       - { name: "prod.payment.AMQP_HOST", value: "rabbitmq-prod.anandnandhu.online" }
       - { name: "prod.payment.AMQP_USER", value: "roboshop" }
       - { name: "prod.shipping.CART_ENDPOINT", value: "cart-roboshop:8080" }
